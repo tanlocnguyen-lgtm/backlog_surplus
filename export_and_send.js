@@ -22,7 +22,7 @@ const {
   SCALE_TO_PX = "1600",
   USE_LOCAL_IMAGE = "0",       // set to "1" to use local file
   LOCAL_IMAGE_PATH = "/mnt/data/55c6a28d-b9e9-4247-9079-a1808fb9dc68.png", // your uploaded file path
-  TEXT_SHEET_NAME = "Scripts"      // sheet name where text cells live
+  TEXT_SHEET_NAME = "KAM_check"      // sheet name where text cells live
 } = process.env;
 
 function need(v, name) { if (!v) { console.error(`Missing env: ${name}`); process.exit(1); } }
@@ -103,8 +103,8 @@ function buildMentionTags(emails) {
 
     // --- Read specific cells from BOT sheet (A1..A15 and B1) ---
     // We'll request BOT!A1:A15 and BOT!B1
-    const rangeA = `${TEXT_SHEET_NAME}!A1`;
-    const rangeB = `${TEXT_SHEET_NAME}!B1`;
+    const rangeA = `${TEXT_SHEET_NAME}!Z4`;
+    const rangeB = `${TEXT_SHEET_NAME}!Z5`;
 
     let aVals = [];
     try {
