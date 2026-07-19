@@ -103,8 +103,8 @@ function buildMentionTags(emails) {
 
     // --- Read specific cells from BOT sheet (A1..A15 and B1) ---
     // We'll request BOT!A1:A15 and BOT!B1
-    const rangeA = `${TEXT_SHEET_NAME}!Z4`;
-    const rangeB = `${TEXT_SHEET_NAME}!Z5`;
+    const rangeA = `${TEXT_SHEET_NAME}!AA1`;
+    const rangeB = `${TEXT_SHEET_NAME}!AA2`;
 
     let aVals = [];
     try {
@@ -122,14 +122,14 @@ function buildMentionTags(emails) {
       console.warn("Warning reading rangeA:", e);
     }
 
-    let Z4 = "";
+    let AA1 = "";
     try {
       const r2 = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(rangeB)}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (r2.ok) {
         const j2 = await r2.json();
-        Z4 = (j2.values && j2.values[0] && j2.values[0][0]) ? String(j2.values[0][0]) : "";
+        AA1 = (j2.values && j2.values[0] && j2.values[0][0]) ? String(j2.values[0][0]) : "";
       } else {
         console.warn("Warning: cannot fetch range", rangeB, "->", await r2.text());
       }
@@ -142,7 +142,7 @@ function buildMentionTags(emails) {
 
     // Map to datX like your Apps Script:
     const dat0 = aVals[0] || "";   // A1
-    const dat11 = Z5 || "";        // B1
+    const dat11 = AA1 || "";        // B1
 
     // --- Build final text exactly like your Apps Script data20 ---
     const prefixMentions = buildMentionTags(MENTION_EMAILS);
