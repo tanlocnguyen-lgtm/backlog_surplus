@@ -142,7 +142,7 @@ function buildMentionTags(emails) {
 
     // Map to datX like your Apps Script:
     const dat0 = aVals[0] || "";   // A1
-    const dat11 = B1 || "";        // B1
+    const dat11 = Z4 || "";        // B1
 
     // --- Build final text exactly like your Apps Script data20 ---
     const prefixMentions = buildMentionTags(MENTION_EMAILS);
