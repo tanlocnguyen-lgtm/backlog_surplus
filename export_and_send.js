@@ -150,7 +150,7 @@ function buildMentionTags(emails) {
 
     // replicate spacing, bolds, newlines as original
     let finalText = "";
-    finalText += "**" + dat11 + "**";
+    finalText +=  dat11;
     finalText += prefixMentions;
     finalText += dat0 + "\n";
     //finalText += dat2 + "\n";
